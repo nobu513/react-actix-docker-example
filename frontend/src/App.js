@@ -1,7 +1,22 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useEffect } from "react";
+import axios from "axios";
 
 function App() {
+  const fetchStudents = () => {
+    //
+    axios
+      .get("http://localhost:8080/api/students")
+      .then((res) => console.log(res.data)); // -> error
+
+    // axios.get("http://backend:8080").then((res) => console.log(res.data)); // -> error
+  };
+
+  useEffect(() => {
+    fetchStudents();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +30,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React?
         </a>
       </header>
     </div>
